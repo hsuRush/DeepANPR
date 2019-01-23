@@ -50,7 +50,7 @@ There're some awesome websites to help you understand.
 
 &nbsp;  &nbsp; After the CNN feature extractor, I reshape the feature map from `[height,width,channel]` to `[width, height*channel]`. I got `[32,16,256]` in the output of the resnet18 model. After reshaping into [32, 16\*256], I connect a fully-connected layer to reduce the dimension to [32,64] features and input into the GRU rnn model, and finally a Softmax out layer for onehot encode output as a string.
 
-<p align="center"><img src ="https://github.com/MachineLearningNTUT2018/computer-vision-107368002/blob/master/demo/transpose.png?raw=true"width="480" title="reshape" ></p>
+<p align="center"><img src ="https://github.com/hsuRush/DeepANPR/blob/master/demo/transpose.png?raw=true"width="480" title="reshape" ></p>
 
 &nbsp;  &nbsp; Because of the Variation of the label length and the maxmium label length, I padding all of the length labels to be 7. (7 is the maximum length of Taiwan plate)
     
@@ -108,8 +108,8 @@ h = (ymax-ymin) * 1.0 / image_h
 
  <center>Yolov3 Architecture  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Modified Yolov3 Architecture </center>
   <div style="text-align:center">
-  <img src ="https://github.com/MachineLearningNTUT2018/computer-vision-107368002/blob/master/demo/yolov3_structure.png?raw=true"height="540" title="Yolov3 structure" />
-  <img src ="https://github.com/MachineLearningNTUT2018/computer-vision-107368002/blob/master/demo/my_yolo_struct.png?raw=true"height="540" title="modified Yolov3 structure" />
+  <img src ="https://github.com/hsuRush/DeepANPR/blob/master/demo/yolov3_structure.png?raw=true"height="540" title="Yolov3 structure" />
+  <img src ="https://github.com/hsuRush/DeepANPR/blob/master/demo/my_yolo_struct.png?raw=true"height="540" title="modified Yolov3 structure" />
   </div>
   
 ### ResNet18+GRU
@@ -121,17 +121,17 @@ h = (ymax-ymin) * 1.0 / image_h
 
   &nbsp;  &nbsp; the original residual block in resnet18:
   
-  <div align="center"><img src ="https://github.com/MachineLearningNTUT2018/computer-vision-107368002/blob/master/demo/resnet_struct.png?raw=true"height="360" title="ResNet structure" /></div>
+  <div align="center"><img src ="https://github.com/hsuRush/DeepANPR/blob/master/demo/resnet_struct.png?raw=true"height="360" title="ResNet structure" /></div>
   
   &nbsp;  &nbsp; I increase the conv layers by changing the residual block from `[2,2,2,2]` to `[2,4,4,2]` and minize the filters=32,64,128,256. Last, I remove the 7x7 /2 conv layers and Maxpooling layers and add 5x5 conv instead.
   
   [EDIT] I use [2,2,2,2] and filters=64,128,256,512 get 98.86% performance.(best on kaggle PLB)
 
-  <p align="center"><img src ="https://github.com/MachineLearningNTUT2018/computer-vision-107368002/blob/master/demo/my_resnet_struct.png?raw=true"height="480" title="modified ResNet structure" ></p>
+  <p align="center"><img src ="https://github.com/hsuRush/DeepANPR/blob/master/demo/my_resnet_struct.png?raw=true"height="480" title="modified ResNet structure" ></p>
   
 * RNN Architecture
   &nbsp;  &nbsp; I feed the datas into two GRUs(GRU, GRU_b) with one reverse sequence, then `add`,`batch normalization`. Next I repeat the GRU procedure with replacing `add` to `concatenate`.(GRU1, GRU2)
-  <p align="center"><img src ="https://github.com/MachineLearningNTUT2018/computer-vision-107368002/blob/master/demo/rnn_structure.png?raw=true" height="640" title="rnn structure"></p>
+  <p align="center"><img src ="https://github.com/hsuRush/DeepANPR/blob/master/demo/rnn_structure.png?raw=true" height="640" title="rnn structure"></p>
 * crop the image by true labels  in order to get the plate image and resize to 128x64.
 
         implement in recognition/load_img.py
@@ -140,7 +140,7 @@ h = (ymax-ymin) * 1.0 / image_h
 
   &nbsp;  &nbsp; There're will thousands of labels are not precisely, like AFG1929 ADB2531 and so on...
   My two stage methods extremely depend on the ground truth, since the final accuracy is multiplication of two accuracies. the labeled data is **extremely** important for me.
-  <p align="center"><img src ="https://github.com/MachineLearningNTUT2018/computer-vision-107368002/blob/master/demo/bad_label.png?raw=true" width="360" title="loss"></p>
+  <p align="center"><img src ="https://github.com/hsuRush/DeepANPR/blob/master/demo/bad_label.png?raw=true" width="360" title="loss"></p>
   
   &nbsp;  &nbsp; I re-labelled 5098 images.
 ## Training
@@ -161,11 +161,11 @@ scales=.1,.1
  ```   
 decay in 3800 and 4100 by lr\*0.1.
 
-<p align="center"><img src ="https://github.com/MachineLearningNTUT2018/computer-vision-107368002/blob/master/demo/yolo_loss.png?raw=true" width="360" title="loss"></p>
+<p align="center"><img src ="https://github.com/hsuRush/DeepANPR/blob/master/demo/yolo_loss.png?raw=true" width="360" title="loss"></p>
 
 Because of the validation problem on darknet, I train all of the dataset without any split, so I write a code to demo on youtube videos([source](https://www.youtube.com/watch?v=fx-CQ-XISYA)), here's a demo below, the output will be lightblue ![](https://placehold.it/15/3BB9FF/000000?text=+)
  boundingboxes.
-<p align="center"><img src ="https://github.com/MachineLearningNTUT2018/computer-vision-107368002/blob/master/demo/yo.gif?raw=true" title="demo for my Yolo"></p>
+<p align="center"><img src ="https://github.com/hsuRush/DeepANPR/blob/master/demo/yo.gif?raw=true" title="demo for my Yolo"></p>
 
 ### ResNet18+GRU
 
@@ -190,12 +190,12 @@ $ sh train.sh
 ```
 
 
-<p align="center"><img src ="https://github.com/MachineLearningNTUT2018/computer-vision-107368002/blob/master/recognition/6_experiment_acc_0987_aug/log.png?raw=true" height="360" title="loss"></p>
+<p align="center"><img src ="https://github.com/hsuRush/DeepANPR/blob/master/recognition/6_experiment_acc_0987_aug/log.png?raw=true" height="360" title="loss"></p>
 
 
 I use LearningRateScheduler and perform an exponential decay fomr decay_poch to final epoch.
 
-<p align="center"><img src ="https://github.com/MachineLearningNTUT2018/computer-vision-107368002/blob/master/demo/lr.png?raw=true" height="300" title="learning rate"></p>
+<p align="center"><img src ="https://github.com/hsuRush/DeepANPR/blob/master/demo/lr.png?raw=true" height="300" title="learning rate"></p>
 
 
 Because the detection model won't detect perfectly every time, I train the model with some image augmentation so the model will be more robust.
