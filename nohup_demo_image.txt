@@ -1,0 +1,115 @@
+nohup: ignoring input
+layer     filters    size              input                output
+    0 conv     64  1 x 1 / 1   320 x 240 x   3   ->   320 x 240 x  64  0.029 BFLOPs
+    1 conv     32  1 x 1 / 1   320 x 240 x  64   ->   320 x 240 x  32  0.315 BFLOPs
+    2 conv     64  3 x 3 / 1   320 x 240 x  32   ->   320 x 240 x  64  2.831 BFLOPs
+    3 res    0                 320 x 240 x  64   ->   320 x 240 x  64
+    4 conv     32  1 x 1 / 1   320 x 240 x  64   ->   320 x 240 x  32  0.315 BFLOPs
+    5 conv     64  3 x 3 / 1   320 x 240 x  32   ->   320 x 240 x  64  2.831 BFLOPs
+    6 res    3                 320 x 240 x  64   ->   320 x 240 x  64
+    7 conv    128  3 x 3 / 2   320 x 240 x  64   ->   160 x 120 x 128  2.831 BFLOPs
+    8 conv     64  1 x 1 / 1   160 x 120 x 128   ->   160 x 120 x  64  0.315 BFLOPs
+    9 conv    128  3 x 3 / 1   160 x 120 x  64   ->   160 x 120 x 128  2.831 BFLOPs
+   10 res    7                 160 x 120 x 128   ->   160 x 120 x 128
+   11 conv     64  1 x 1 / 1   160 x 120 x 128   ->   160 x 120 x  64  0.315 BFLOPs
+   12 conv    128  3 x 3 / 1   160 x 120 x  64   ->   160 x 120 x 128  2.831 BFLOPs
+   13 res   10                 160 x 120 x 128   ->   160 x 120 x 128
+   14 conv    256  3 x 3 / 2   160 x 120 x 128   ->    80 x  60 x 256  2.831 BFLOPs
+   15 conv    128  1 x 1 / 1    80 x  60 x 256   ->    80 x  60 x 128  0.315 BFLOPs
+   16 conv    256  3 x 3 / 1    80 x  60 x 128   ->    80 x  60 x 256  2.831 BFLOPs
+   17 res   14                  80 x  60 x 256   ->    80 x  60 x 256
+   18 conv    128  1 x 1 / 1    80 x  60 x 256   ->    80 x  60 x 128  0.315 BFLOPs
+   19 conv    256  3 x 3 / 1    80 x  60 x 128   ->    80 x  60 x 256  2.831 BFLOPs
+   20 res   17                  80 x  60 x 256   ->    80 x  60 x 256
+   21 conv    128  1 x 1 / 1    80 x  60 x 256   ->    80 x  60 x 128  0.315 BFLOPs
+   22 conv    256  3 x 3 / 1    80 x  60 x 128   ->    80 x  60 x 256  2.831 BFLOPs
+   23 res   20                  80 x  60 x 256   ->    80 x  60 x 256
+   24 conv    128  1 x 1 / 1    80 x  60 x 256   ->    80 x  60 x 128  0.315 BFLOPs
+   25 conv    256  3 x 3 / 1    80 x  60 x 128   ->    80 x  60 x 256  2.831 BFLOPs
+   26 res   23                  80 x  60 x 256   ->    80 x  60 x 256
+   27 conv    128  1 x 1 / 1    80 x  60 x 256   ->    80 x  60 x 128  0.315 BFLOPs
+   28 conv    256  3 x 3 / 1    80 x  60 x 128   ->    80 x  60 x 256  2.831 BFLOPs
+   29 res   26                  80 x  60 x 256   ->    80 x  60 x 256
+   30 conv    128  1 x 1 / 1    80 x  60 x 256   ->    80 x  60 x 128  0.315 BFLOPs
+   31 conv    256  3 x 3 / 1    80 x  60 x 128   ->    80 x  60 x 256  2.831 BFLOPs
+   32 res   29                  80 x  60 x 256   ->    80 x  60 x 256
+   33 conv    128  1 x 1 / 1    80 x  60 x 256   ->    80 x  60 x 128  0.315 BFLOPs
+   34 conv    256  3 x 3 / 1    80 x  60 x 128   ->    80 x  60 x 256  2.831 BFLOPs
+   35 res   32                  80 x  60 x 256   ->    80 x  60 x 256
+   36 conv    128  1 x 1 / 1    80 x  60 x 256   ->    80 x  60 x 128  0.315 BFLOPs
+   37 conv    256  3 x 3 / 1    80 x  60 x 128   ->    80 x  60 x 256  2.831 BFLOPs
+   38 res   35                  80 x  60 x 256   ->    80 x  60 x 256
+   39 conv    512  3 x 3 / 2    80 x  60 x 256   ->    40 x  30 x 512  2.831 BFLOPs
+   40 conv    256  1 x 1 / 1    40 x  30 x 512   ->    40 x  30 x 256  0.315 BFLOPs
+   41 conv    512  3 x 3 / 1    40 x  30 x 256   ->    40 x  30 x 512  2.831 BFLOPs
+   42 res   39                  40 x  30 x 512   ->    40 x  30 x 512
+   43 conv    256  1 x 1 / 1    40 x  30 x 512   ->    40 x  30 x 256  0.315 BFLOPs
+   44 conv    512  3 x 3 / 1    40 x  30 x 256   ->    40 x  30 x 512  2.831 BFLOPs
+   45 res   42                  40 x  30 x 512   ->    40 x  30 x 512
+   46 conv    256  1 x 1 / 1    40 x  30 x 512   ->    40 x  30 x 256  0.315 BFLOPs
+   47 conv    512  3 x 3 / 1    40 x  30 x 256   ->    40 x  30 x 512  2.831 BFLOPs
+   48 res   45                  40 x  30 x 512   ->    40 x  30 x 512
+   49 conv    256  1 x 1 / 1    40 x  30 x 512   ->    40 x  30 x 256  0.315 BFLOPs
+   50 conv    512  3 x 3 / 1    40 x  30 x 256   ->    40 x  30 x 512  2.831 BFLOPs
+   51 res   48                  40 x  30 x 512   ->    40 x  30 x 512
+   52 conv    256  1 x 1 / 1    40 x  30 x 512   ->    40 x  30 x 256  0.315 BFLOPs
+   53 conv    512  3 x 3 / 1    40 x  30 x 256   ->    40 x  30 x 512  2.831 BFLOPs
+   54 res   51                  40 x  30 x 512   ->    40 x  30 x 512
+   55 conv    256  1 x 1 / 1    40 x  30 x 512   ->    40 x  30 x 256  0.315 BFLOPs
+   56 conv    512  3 x 3 / 1    40 x  30 x 256   ->    40 x  30 x 512  2.831 BFLOPs
+   57 res   54                  40 x  30 x 512   ->    40 x  30 x 512
+   58 conv    256  1 x 1 / 1    40 x  30 x 512   ->    40 x  30 x 256  0.315 BFLOPs
+   59 conv    512  3 x 3 / 1    40 x  30 x 256   ->    40 x  30 x 512  2.831 BFLOPs
+   60 res   57                  40 x  30 x 512   ->    40 x  30 x 512
+   61 conv    256  1 x 1 / 1    40 x  30 x 512   ->    40 x  30 x 256  0.315 BFLOPs
+   62 conv    512  3 x 3 / 1    40 x  30 x 256   ->    40 x  30 x 512  2.831 BFLOPs
+   63 res   60                  40 x  30 x 512   ->    40 x  30 x 512
+   64 conv    512  1 x 1 / 2    40 x  30 x 512   ->    20 x  15 x 512  0.157 BFLOPs
+   65 conv    512  1 x 1 / 1    20 x  15 x 512   ->    20 x  15 x 512  0.157 BFLOPs
+   66 conv   1024  3 x 3 / 1    20 x  15 x 512   ->    20 x  15 x1024  2.831 BFLOPs
+   67 res   64                  20 x  15 x 512   ->    20 x  15 x1024
+   68 conv    512  1 x 1 / 1    20 x  15 x1024   ->    20 x  15 x 512  0.315 BFLOPs
+   69 conv   1024  3 x 3 / 1    20 x  15 x 512   ->    20 x  15 x1024  2.831 BFLOPs
+   70 res   67                  20 x  15 x1024   ->    20 x  15 x1024
+   71 conv    512  1 x 1 / 1    20 x  15 x1024   ->    20 x  15 x 512  0.315 BFLOPs
+   72 conv   1024  3 x 3 / 1    20 x  15 x 512   ->    20 x  15 x1024  2.831 BFLOPs
+   73 res   70                  20 x  15 x1024   ->    20 x  15 x1024
+   74 conv    512  1 x 1 / 1    20 x  15 x1024   ->    20 x  15 x 512  0.315 BFLOPs
+   75 conv   1024  3 x 3 / 1    20 x  15 x 512   ->    20 x  15 x1024  2.831 BFLOPs
+   76 res   73                  20 x  15 x1024   ->    20 x  15 x1024
+   77 conv    512  1 x 1 / 1    20 x  15 x1024   ->    20 x  15 x 512  0.315 BFLOPs
+   78 conv   1024  3 x 3 / 1    20 x  15 x 512   ->    20 x  15 x1024  2.831 BFLOPs
+   79 conv    512  1 x 1 / 1    20 x  15 x1024   ->    20 x  15 x 512  0.315 BFLOPs
+   80 conv   1024  3 x 3 / 1    20 x  15 x 512   ->    20 x  15 x1024  2.831 BFLOPs
+   81 conv    512  1 x 1 / 1    20 x  15 x1024   ->    20 x  15 x 512  0.315 BFLOPs
+   82 conv   1024  3 x 3 / 1    20 x  15 x 512   ->    20 x  15 x1024  2.831 BFLOPs
+   83 conv    512  1 x 1 / 1    20 x  15 x1024   ->    20 x  15 x 512  0.315 BFLOPs
+   84 conv   1024  3 x 3 / 1    20 x  15 x 512   ->    20 x  15 x1024  2.831 BFLOPs
+   85 conv     18  1 x 1 / 1    20 x  15 x1024   ->    20 x  15 x  18  0.011 BFLOPs
+   86 yolo
+   87 route  83
+   88 conv    256  1 x 1 / 1    20 x  15 x 512   ->    20 x  15 x 256  0.079 BFLOPs
+   89 upsample            2x    20 x  15 x 256   ->    40 x  30 x 256
+   90 route  89 63
+   91 conv    256  1 x 1 / 1    40 x  30 x 768   ->    40 x  30 x 256  0.472 BFLOPs
+   92 conv    512  3 x 3 / 1    40 x  30 x 256   ->    40 x  30 x 512  2.831 BFLOPs
+   93 conv    256  1 x 1 / 1    40 x  30 x 512   ->    40 x  30 x 256  0.315 BFLOPs
+   94 conv    512  3 x 3 / 1    40 x  30 x 256   ->    40 x  30 x 512  2.831 BFLOPs
+   95 conv    256  1 x 1 / 1    40 x  30 x 512   ->    40 x  30 x 256  0.315 BFLOPs
+   96 conv    512  3 x 3 / 1    40 x  30 x 256   ->    40 x  30 x 512  2.831 BFLOPs
+   97 conv     18  1 x 1 / 1    40 x  30 x 512   ->    40 x  30 x  18  0.022 BFLOPs
+   98 yolo
+   99 route  95
+  100 conv    128  1 x 1 / 1    40 x  30 x 256   ->    40 x  30 x 128  0.079 BFLOPs
+  101 upsample            2x    40 x  30 x 128   ->    80 x  60 x 128
+  102 route  101 38
+  103 conv    128  1 x 1 / 1    80 x  60 x 384   ->    80 x  60 x 128  0.472 BFLOPs
+  104 conv    256  3 x 3 / 1    80 x  60 x 128   ->    80 x  60 x 256  2.831 BFLOPs
+  105 conv    128  1 x 1 / 1    80 x  60 x 256   ->    80 x  60 x 128  0.315 BFLOPs
+  106 conv    256  3 x 3 / 1    80 x  60 x 128   ->    80 x  60 x 256  2.831 BFLOPs
+  107 conv    128  1 x 1 / 1    80 x  60 x 256   ->    80 x  60 x 128  0.315 BFLOPs
+  108 conv    256  3 x 3 / 1    80 x  60 x 128   ->    80 x  60 x 256  2.831 BFLOPs
+  109 conv     18  1 x 1 / 1    80 x  60 x 256   ->    80 x  60 x  18  0.044 BFLOPs
+  110 yolo
+Loading weights from /data1000G/steven/backup/yolov3_1_cls_final.weights...Done!
+['6852.jpg', '9568.jpg', '2817.jpg', '4793.jpg', '3513.jpg', '5018.jpg', '6476.jpg', '9647.jpg', '9852.jpg', '5189.jpg', '3193.jpg', '99.jpg', '5812.jpg', '2476.jpg', '2908.jpg', '5085.jpg', '3643.jpg', '7443.jpg', '1088.jpg', '4391.jpg', '804.jpg', '2288.jpg', '5929.jpg', '2266.jpg', '8033.jpg', '320.jpg', '4369.jpg', '610.jpg', '3074.jpg', '8595.jpg', '3746.jpg', '9707.jpg', '3184.jpg', '5971.jpg', '1898.jpg', '1535.jpg', '1028.jpg', '3419.jpg', '4880.jpg', '8914.jpg', '6643.jpg', '2079.jpg', '9093.jpg', '6236.jpg', '2941.jpg', '6848.jpg', '6537.jpg', '546.jpg', '2526.jpg', '5743.jpg', '364.jpg', '1826.jpg', '8483.jpg', '7907.jpg', '6270.jpg', '8149.jpg', '6919.jpg', '680.jpg', '2522.jpg', '805.jpg', '175.jpg', '5230.jpg', '3782.jpg', '4955.jpg', '1213.jpg', '5121.jpg', '6496.jpg', '4918.jpg', '326.jpg', '5338.jpg', '7326.jpg', '5627.jpg', '4072.jpg', '1705.jpg', '1233.jpg', '8581.jpg', '1721.jpg', '8617.jpg', '7865.jpg']

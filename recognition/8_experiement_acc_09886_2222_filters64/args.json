@@ -1,0 +1,11 @@
+{
+  "batch": 16,
+  "decay_epoch": 20,
+  "epoch": 40,
+  "experiment_dir": "./experiment",
+  "lr": 0.0001,
+  "model": "resnet18_2222_64",
+  "resume": false,
+  "valid_split": 0.1,
+  "weights": null
+}
