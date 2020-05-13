@@ -1,17 +1,19 @@
 import glob
 import xml.etree.ElementTree as ET
- 
 import numpy as np
- 
+
 from kmeans_lib import kmeans, avg_iou
- 
+
+# the final result is in './k_means_anchor'
+
 ANNOTATIONS_PATH = "/data1000G/steven/ML_PLATE/data/train/labels/plate_original/"
 CLUSTERS = 9
-
 HEIGHT = 240
 WIDTH = 320
- 
 classes = ["plate"]
+----
+times = 50 # 跑 50 次kmeans後取效果最好的,如果資料很大不要設太高要跑很久
+#run 50 times and select the best one, the speed depends on the size of the dataset. 
 
 def load_dataset(path):
     dataset = []
@@ -21,7 +23,8 @@ def load_dataset(path):
         height = int(tree.findtext("./size/height"))
         width = int(tree.findtext("./size/width"))
         if height != HEIGHT and width != WIDTH:       
-            print(1)
+            print("weidth and height is NOT match!!!")
+            break
 
         for obj in tree.iter("object"):
             cls = obj.find('name').text
@@ -39,20 +42,20 @@ def load_dataset(path):
             xmax = np.float64(xmax)
             ymax = np.float64(ymax)
 
-        if xmax == xmin or ymax == ymin:
-            print(xml_file)
+            if xmax == xmin or ymax == ymin:
+                print(xml_file, "w or h is 0")
+                continue
 
-        dataset.append([xmax - xmin, ymax - ymin])
+            dataset.append([xmax - xmin, ymax - ymin])
     return np.array(dataset)
  
 if __name__ == '__main__':
-    times = 50
     best_acc = 0
     best_anchor = None
-    
-    #print(__file__)
+    data = load_dataset(ANNOTATIONS_PATH)
     for i in range(times):
-        data = load_dataset(ANNOTATIONS_PATH)
+        print('the ',i,' times')
+        
         out = kmeans(data, k=CLUSTERS)
         #clusters = [[10,13],[16,30],[33,23],[30,61],[62,45],[59,119],[116,90],[156,198],[373,326]]
         #out= np.array(clusters)/416.0
